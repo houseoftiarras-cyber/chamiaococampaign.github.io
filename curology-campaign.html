@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Smarter — Curology Campaign Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple:     #6B5CE7;
+    --purple-mid: #8B7FF0;
+    --purple-light: #EAE7FD;
+    --navy:       #1A1833;
+    --white:      #FFFFFF;
+    --off-white:  #F7F6FC;
+    --gray:       #9896A8;
+    --light-gray: #E8E6F4;
+    --text:       #1A1833;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── SLIDES ── */
+  .slide {
+    min-height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-label {
+    position: absolute;
+    top: 36px; left: 64px;
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.4;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 36px; right: 64px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.35;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--purple-mid);
+    margin-bottom: 28px;
+  }
+
+  /* ── SLIDE 1 COVER ── */
+  .cover {
+    background: var(--navy);
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-bottom: 96px;
+  }
+
+  .cover-bg-circle {
+    position: absolute;
+    top: -160px; right: -160px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,92,231,0.22) 0%, transparent 68%);
+    pointer-events: none;
+  }
+
+  .cover-bg-circle2 {
+    position: absolute;
+    bottom: -80px; left: 40%;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,92,231,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-pill {
+    display: inline-block;
+    background: rgba(107,92,231,0.18);
+    border: 1px solid rgba(107,92,231,0.4);
+    color: var(--purple-mid);
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 36px;
+    font-weight: 600;
+  }
+
+  .cover h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(72px, 11vw, 128px);
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: -3px;
+    margin-bottom: 0;
+  }
+
+  .cover h1 span {
+    color: var(--purple);
+    display: block;
+  }
+
+  .cover-rule {
+    width: 56px; height: 2px;
+    background: var(--purple);
+    margin: 40px 0 28px;
+  }
+
+  .cover-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  /* ── SLIDE 2 TENSION ── */
+  .tension { background: var(--off-white); }
+
+  .tension h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 4vw, 50px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    max-width: 480px;
+    margin-bottom: 48px;
+    color: var(--navy);
+  }
+
+  .tension h2 em {
+    font-style: italic;
+    color: var(--purple);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  .tension-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .t-card {
+    padding: 28px 26px 32px;
+    border-radius: 12px;
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+  }
+
+  .t-card.dark {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .t-card .t-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 14px;
+  }
+
+  .t-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .t-card.dark p { color: rgba(255,255,255,0.75); }
+  .t-card.dark .t-label { color: var(--purple-mid); }
+
+  .t-card .t-tag {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: var(--purple-light);
+    color: var(--purple);
+  }
+
+  .t-card.dark .t-tag {
+    background: rgba(107,92,231,0.2);
+    color: var(--purple-mid);
+  }
+
+  /* ── SLIDE 3 INSIGHT ── */
+  .insight {
+    background: var(--purple);
+    color: var(--white);
+  }
+
+  .insight .section-eyebrow { color: rgba(255,255,255,0.6); }
+
+  .insight-quote {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 860px;
+    margin-bottom: 56px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .insight-quote strong {
+    font-style: italic;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background: rgba(255,255,255,0.15);
+    padding: 2px 10px;
+    border-radius: 4px;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 56px;
+    flex-wrap: wrap;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 6px; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .stat-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    max-width: 200px;
+    line-height: 1.5;
+  }
+
+  .stat-source {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ── SLIDE 4 CONCEPT ── */
+  .concept { background: var(--white); }
+
+  .concept-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .concept-left h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -2px;
+    color: var(--navy);
+  }
+
+  .concept-left h2 em {
+    display: block;
+    color: var(--purple);
+    font-style: italic;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.7em;
+    letter-spacing: 0;
+  }
+
+  .concept-left .concept-rule {
+    width: 48px; height: 3px;
+    background: var(--purple);
+    margin: 32px 0;
+  }
+
+  .concept-left .warm-science {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--purple);
+    border: 1.5px solid var(--purple-light);
+    background: var(--purple-light);
+    padding: 7px 16px;
+    border-radius: 100px;
+  }
+
+  .concept-right p {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #444;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .concept-right p strong { color: var(--navy); font-weight: 600; }
+
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+
+  .c-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--navy);
+    border: 1.5px solid var(--light-gray);
+    padding: 7px 14px;
+    border-radius: 100px;
+  }
+
+  /* ── SLIDE 5 PILLARS ── */
+  .pillars { background: var(--navy); }
+
+  .pillars .section-eyebrow { color: var(--purple-mid); }
+
+  .pillars h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .p-card {
+    border-radius: 14px;
+    padding: 32px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .p-card:nth-child(1) { background: var(--purple); }
+  .p-card:nth-child(2) { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+  .p-card:nth-child(3) { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+
+  .p-num {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .p-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+  }
+
+  .p-card .p-desc {
+    font-size: 13px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+  }
+
+  .p-mock {
+    margin-top: 6px;
+    padding: 14px 16px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+  }
+
+  .p-platform {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 600;
+  }
+
+  /* ── SLIDE 6 WHY NOT SKINCARE INFLUENCERS ── */
+  .why { background: var(--off-white); }
+
+  .why h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+
+  .why h2 em { color: var(--purple); font-style: italic; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .why-card {
+    padding: 28px;
+    border-radius: 12px;
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+  }
+
+  .why-card .why-icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .why-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .why-card p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #555;
+    font-weight: 300;
+  }
+
+  /* ── SLIDE 7 INFLUENCERS ── */
+  .influencers { background: var(--white); }
+
+  .influencers h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 36px;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .tier {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1.5px solid var(--light-gray);
+  }
+
+  .tier-head {
+    padding: 20px 22px 18px;
+    border-bottom: 1.5px solid var(--light-gray);
+    background: var(--off-white);
+  }
+
+  .tier-head .tier-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 4px;
+  }
+
+  .tier-head .tier-range {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+
+  .tier-head .tier-role {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .tier-body {
+    padding: 18px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .creator-card {
+    padding: 14px 16px;
+    background: var(--off-white);
+    border-radius: 8px;
+  }
+
+  .creator-card .c-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .creator-card .c-detail {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .creator-card .c-badge {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .badge-fitness { background: #E3F2E0; color: #2E7D32; }
+  .badge-wellness { background: #FFF3E0; color: #E65100; }
+  .badge-derm { background: var(--purple-light); color: var(--purple); }
+  .badge-ugc { background: var(--light-gray); color: var(--navy); }
+
+  /* ── SLIDE 8 CLOSING ── */
+  .closing {
+    background: var(--navy);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .closing-bg {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,92,231,0.16) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .closing h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(40px, 6vw, 76px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    max-width: 700px;
+  }
+
+  .closing h2 em {
+    color: var(--purple);
+    font-style: italic;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  .closing p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    max-width: 520px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 52px;
+  }
+
+  .closing-divider {
+    width: 1px; height: 48px;
+    background: rgba(107,92,231,0.5);
+    margin: 0 auto 28px;
+  }
+
+  .closing-name strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .closing-name span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
+  }
+
+  /* ── NAV ── */
+  .nav-dots {
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    z-index: 200;
+  }
+
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background: var(--purple);
+    transform: scale(1.8);
+  }
+
+  /* ── ANIMATIONS ── */
+  .slide > *:not(.cover-bg-circle):not(.cover-bg-circle2):not(.closing-bg) {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .slide.visible > *:not(.cover-bg-circle):not(.cover-bg-circle2):not(.closing-bg) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .slide.visible > *:nth-child(2) { transition-delay: 0.08s; }
+  .slide.visible > *:nth-child(3) { transition-delay: 0.16s; }
+  .slide.visible > *:nth-child(4) { transition-delay: 0.24s; }
+  .slide.visible > *:nth-child(5) { transition-delay: 0.32s; }
+
+  @media (max-width: 780px) {
+    .slide { padding: 56px 24px; }
+    .tension-grid, .pillars-grid, .tiers-grid, .concept-wrap, .why-grid { grid-template-columns: 1fr; gap: 16px; }
+    .stats-row { gap: 28px; }
+    .nav-dots { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-dots" id="navDots"></div>
+
+<!-- SLIDE 1: COVER -->
+<section class="slide cover" id="s1">
+  <div class="cover-bg-circle"></div>
+  <div class="cover-bg-circle2"></div>
+  <div class="slide-label" style="color:rgba(255,255,255,0.3)">Curology</div>
+  <div class="cover-pill">Summer Campaign Pitch · 2026</div>
+  <h1>Skin<span>Smarter.</span></h1>
+  <div class="cover-rule"></div>
+  <p class="cover-sub">Bridging Curology's clinical credibility with the cultural moment their generation is already living in.</p>
+</section>
+
+<!-- SLIDE 2: THE TENSION -->
+<section class="slide tension" id="s2">
+  <div class="slide-label">Curology · Campaign Pitch</div>
+  <div class="slide-num">01 / 07</div>
+  <div class="section-eyebrow">The Problem</div>
+  <h2>The brand has real <em>credibility.</em><br>The audience just doesn't know it yet.</h2>
+  <div class="tension-grid">
+    <div class="t-card">
+      <div class="t-label">What Curology leads with</div>
+      <p>"Prescription skincare. Dermatologist-backed. Rx formula." Clinical language that signals medical authority.</p>
+      <span class="t-tag">Their positioning</span>
+    </div>
+    <div class="t-card">
+      <div class="t-label">What Gen Z hears</div>
+      <p>Extra steps. A long intake form. A process. Friction. The opposite of how this generation actually decides what to buy.</p>
+      <span class="t-tag">The perception gap</span>
+    </div>
+    <div class="t-card dark">
+      <div class="t-label">The real opportunity</div>
+      <p>They already have ingredients Gen Z is actively hunting for — tretinoin, personalized formulas — and their audience doesn't know it exists.</p>
+      <span class="t-tag">The campaign brief</span>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: THE INSIGHT -->
+<section class="slide insight" id="s3">
+  <div class="slide-label" style="color:rgba(255,255,255,0.35)">Curology · Campaign Pitch</div>
+  <div class="slide-num" style="color:rgba(255,255,255,0.35)">02 / 07</div>
+  <div class="section-eyebrow">The Insight</div>
+  <p class="insight-quote">This generation tracks their macros, logs their sleep, and researches every ingredient before they eat it. <strong>Their skincare should be just as intentional.</strong></p>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num">69%</div>
+      <div class="stat-desc">of Gen Z discovered a new product through an influencer in 2024 — up from 45% the year before</div>
+      <div class="stat-source">Sitecore / 2024 Survey</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">64%</div>
+      <div class="stat-desc">of Gen Z say they discovered at least one new product last month through an influencer post</div>
+      <div class="stat-source">RevenueMemo / Zebracat 2025–26</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3.2×</div>
+      <div class="stat-desc">more likely to trust a micro-influencer recommendation than a celebrity endorsement</div>
+      <div class="stat-source">RevenueMemo 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: CAMPAIGN CONCEPT -->
+<section class="slide concept" id="s4">
+  <div class="slide-label">Curology · Campaign Pitch</div>
+  <div class="slide-num">03 / 07</div>
+  <div class="concept-wrap">
+    <div class="concept-left">
+      <div class="section-eyebrow">Campaign Concept</div>
+      <h2>Skin<em>Smarter.</em></h2>
+      <div class="concept-rule"></div>
+      <span class="warm-science">Warm Science — Credible, yet human</span>
+    </div>
+    <div class="concept-right">
+      <p>You track your macros. You optimize your sleep. You read the label before you eat it. <strong>But you're still guessing with your skin.</strong></p>
+      <p><em>Skin Smarter</em> repositions Curology not as a medical process, but as the brand that finally matches how <strong>intentionally this generation already lives.</strong> Real dermatologist access. Real ingredients. Real results — without the clinical friction.</p>
+      <p>The campaign doesn't change what Curology is. It changes <strong>who knows about it and how it feels to find out.</strong></p>
+      <div class="tag-row">
+        <span class="c-tag">Gen Z · Millennial</span>
+        <span class="c-tag">TikTok · Instagram · YouTube</span>
+        <span class="c-tag">Fitness · Wellness · Clinical</span>
+        <span class="c-tag">90-Day Results</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: THREE PILLARS -->
+<section class="slide pillars" id="s5">
+  <div class="slide-label" style="color:rgba(255,255,255,0.3)">Curology · Campaign Pitch</div>
+  <div class="slide-num" style="color:rgba(255,255,255,0.3)">04 / 07</div>
+  <div class="section-eyebrow">Content Pillars</div>
+  <h2>Three ways to close the gap.</h2>
+  <div class="pillars-grid">
+    <div class="p-card">
+      <div class="p-num">Pillar 01</div>
+      <h3>"You've Been Doing It Wrong"</h3>
+      <p class="p-desc">Ingredient education that makes followers feel informed, not lectured. Hyaluronic acid on damp skin. What not to layer. What your skin actually needs after the gym. Simple, visual, native TikTok content — no production budget needed.</p>
+      <div class="p-mock">🎬 Close-up of two products. Hand applies HA to damp skin. Text overlay: "you've been applying this wrong." No voiceover. Curology end card.</div>
+      <div class="p-platform">TikTok · Instagram Reels</div>
+    </div>
+    <div class="p-card">
+      <div class="p-num">Pillar 02</div>
+      <h3>"You Can Actually Get This"</h3>
+      <p class="p-desc">Tretinoin has been all over the FYP for two years. People are going to sketchy sites, asking doctors, hunting for it. Curology has had it the whole time. The content angle is discovery — not a prescription. "We've had what you've been looking for."</p>
+      <div class="p-mock">🎬 Creator voiceover: "I spent months trying to find tretinoin. Then I found out Curology has it — and it's $5 to try." Cut to honest 90-day before/after. Real, not polished.</div>
+      <div class="p-platform">YouTube · TikTok</div>
+    </div>
+    <div class="p-card">
+      <div class="p-num">Pillar 03</div>
+      <h3>"Your Skin Lives in the Real World"</h3>
+      <p class="p-desc">Run clubs. Pilates. The gym. This generation is actively working on their body — and their skin is along for the ride. Post-workout breakouts, sweat, barrier damage. Curology shows up in real life, not just a bathroom mirror.</p>
+      <div class="p-mock">🎬 Creator leaving Pilates: "what I put on my face after every class." Natural light, no script. Product is one moment in a full-life video — not the whole point.</div>
+      <div class="p-platform">TikTok · Instagram · YouTube</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: WHY NOT SKINCARE INFLUENCERS -->
+<section class="slide why" id="s6">
+  <div class="slide-label">Curology · Campaign Pitch</div>
+  <div class="slide-num">05 / 07</div>
+  <div class="section-eyebrow">Influencer Strategy</div>
+  <h2>Not skincare influencers.<br><em>Lifestyle influencers who happen to have skin.</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏃‍♀️</div>
+      <h4>Fitness & Run Club Creators</h4>
+      <p>Run clubs are everywhere right now. Pilates. The gym. Everyone is working on their body — and wants their face to match. Sweating daily creates real skin concerns: breakouts, irritation, disrupted barrier. This makes the product feel actively necessary, not aspirational.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌿</div>
+      <h4>Wellness "It Girl" Creators</h4>
+      <p>The girl who talks about gut health, her minerals, her matcha — she's the same girl who is intentional about her skincare. Curology's personalized model fits her identity perfectly. She's not buying random products off a shelf. She researches. She optimizes. Curology is her brand.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔬</div>
+      <h4>Dermatologist Creators</h4>
+      <p>Dermatologist TikTok is a massive, trusted category. These creators already have the audience Curology needs — people who are curious about ingredients, want clinical truth, and will actually try what a derm recommends. This is credibility that can't be faked or purchased.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📵</div>
+      <h4>Why Not Traditional Skincare Influencers</h4>
+      <p>Skincare influencers are oversaturated with brand deals, and their audiences have learned to tune out product placements. Reaching Curology's target through fitness and wellness creators means the product discovery feels organic — not like an ad they've already seen 40 times.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: INFLUENCER TIERS -->
+<section class="slide influencers" id="s7">
+  <div class="slide-label">Curology · Campaign Pitch</div>
+  <div class="slide-num">06 / 07</div>
+  <div class="section-eyebrow">Influencer Tiers</div>
+  <h2>Three tiers. One unified voice.</h2>
+  <div class="tiers-grid">
+
+    <div class="tier">
+      <div class="tier-head">
+        <div class="tier-label">Tier 1 · Cultural Relevance</div>
+        <div class="tier-range">250K – 1M</div>
+        <div class="tier-role">Fitness & wellness macro creators. Brand awareness and identity repositioning.</div>
+      </div>
+      <div class="tier-body">
+        <div class="creator-card">
+          <div class="c-name">@mosmfit (Mo)</div>
+          <div class="c-detail">467K followers · Gymshark partner · covers fitness, hair, and lifestyle — already bridges beauty and fitness naturally</div>
+          <span class="c-badge badge-fitness">Fitness / Wellness</span>
+        </div>
+        <div class="creator-card">
+          <div class="c-name">Wellness "That Girl" Creator</div>
+          <div class="c-detail">300–600K · morning routine, Pilates, gut health, matcha aesthetic — intentional living content</div>
+          <span class="c-badge badge-wellness">Wellness</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-head">
+        <div class="tier-label">Tier 2 · Real-Life Integration</div>
+        <div class="tier-range">50K – 250K</div>
+        <div class="tier-role">Micro fitness creators. Authentic UGC-style content with higher trust and engagement.</div>
+      </div>
+      <div class="tier-body">
+        <div class="creator-card">
+          <div class="c-name">@adri..liftz</div>
+          <div class="c-detail">168K followers · body recomp content · existing partnerships with activewear and supplement brands — proven brand deal audience</div>
+          <span class="c-badge badge-fitness">Fitness</span>
+        </div>
+        <div class="creator-card">
+          <div class="c-name">Post-Workout Skin Niche Creators</div>
+          <div class="c-detail">50–150K · gym-to-glam, sweat-proof routine, skin barrier content — high intent, low saturation</div>
+          <span class="c-badge badge-fitness">Fitness / Skin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-head">
+        <div class="tier-label">Tier 3 · Credibility Layer</div>
+        <div class="tier-range">50K – 5M+</div>
+        <div class="tier-role">Dermatologist TikTok creators. Clinical trust that no brand deal can manufacture.</div>
+      </div>
+      <div class="tier-body">
+        <div class="creator-card">
+          <div class="c-name">Dermatologist Creators (e.g. @dermdoctor)</div>
+          <div class="c-detail">Derm TikTok is a proven, high-trust category. These creators explain ingredients and debunk myths — exactly the audience hunting for tretinoin and personalized care</div>
+          <span class="c-badge badge-derm">Dermatology</span>
+        </div>
+        <div class="creator-card">
+          <div class="c-name">Real Curology Users · UGC</div>
+          <div class="c-detail">Activated through a structured 90-day results challenge. Documented, repurposed by brand as social proof across all platforms</div>
+          <span class="c-badge badge-ugc">UGC / Community</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SLIDE 8: CLOSING -->
+<section class="slide closing" id="s8">
+  <div class="closing-bg"></div>
+  <div class="slide-num" style="color:rgba(255,255,255,0.2)">07 / 07</div>
+  <h2>The goal isn't<br>to go <em>viral.</em><br>It's to become known.</h2>
+  <p>Curology already has what Gen Z is actively searching for. This campaign's job is to close the distance between what exists and who knows about it — through the voices, formats, and cultural moments that actually move this generation.</p>
+  <div class="closing-divider"></div>
+  <div class="closing-name">
+    <strong>Chamia Tiarra</strong>
+    <span>Social Media & Influencer Marketing Intern Candidate</span>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const navEl  = document.getElementById('navDots');
+
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'dot' + (i === 0 ? ' active' : '');
+    btn.setAttribute('aria-label', `Slide ${i + 1}`);
+    btn.onclick = () => slides[i].scrollIntoView({ behavior: 'smooth' });
+    navEl.appendChild(btn);
+  });
+
+  const dots = navEl.querySelectorAll('.dot');
+
+  const lightSlides = new Set(['s2','s4','s6','s7']);
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      el.classList.add('visible');
+      const idx = Array.from(slides).indexOf(el);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      const isLight = lightSlides.has(el.id);
+      dots.forEach(d => {
+        const isActive = d.classList.contains('active');
+        d.style.background = isActive
+          ? (isLight ? '#6B5CE7' : '#6B5CE7')
+          : (isLight ? 'rgba(26,24,51,0.2)' : 'rgba(255,255,255,0.25)');
+      });
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
